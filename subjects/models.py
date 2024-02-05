@@ -5,3 +5,6 @@ from school.models import School
 class Subject(models.Model):
     label = models.CharField(max_length=50, unique=True)
     school = models.ForeignKey(School, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.label

@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr-FR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>v2c-school application</title>
+
+    <!-- Global styles -->
+    <link rel="stylesheet" href="{% static 'css/styles.css/' %}" />
+
+    <!-- Custom styles -->
+    {% block custom_styles %}{% endblock %}
+  </head>
+
+  <body>
+    {% block content %} {% endblock content %}
+
+    <!-- Custom JS -->
+    {% block custom_js %}{% endblock %}
+
+    <!-- Global JS -->
+    <script src="{% static 'js/main.js' %}"></script>
+  </body>
+</html>

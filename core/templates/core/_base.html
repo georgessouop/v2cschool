@@ -1,0 +1,22 @@
+{% extends '_base.html' %}
+
+<!-- STATIC FILES LOADER -->
+{% load static %}
+
+<!-- CSS -->
+{% block custom_css %}
+<link rel="stylesheet" href="{% static 'core/css/styles.css' %}" />
+{% endblock %}
+
+<!-- CONTENT -->
+{% block content %}
+<!-- Navigation-->
+{% include 'core/navigation.html' %}
+<!-- core_content-->
+<main>{% block core_content %}{% endblock %}</main>
+{% endblock %}
+
+<!-- JS -->
+{% block custom_js %}
+<script src="{% static 'core/js/main.js' %}"></script>
+{% endblock %}

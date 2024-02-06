@@ -19,35 +19,36 @@
     <h1 class="register__heading">Créez votre compte</h1>
     <p class="register__info">
       Vous avez déjà un compte?
-      <a href="{% url 'users:login' %}">Se connecter</a>
+      <a href="{% url 'users:signin' %}">Se connecter</a>
     </p>
-    <form action="#" class="register__form">
+    <form class="register__form" method="post">
+      {% csrf_token %}
       <div class="form__group">
         <label for="#">Nom Etablissement</label>
         <div class="form__item">
-          <input type="text" />
+          <input name="school_name" type="text" />
         </div>
       </div>
       <div class="form__group">
         <label for="#">Nom utilisateur</label>
         <div class="form__item">
-          <input type="text" />
+          <input name="username" type="text" />
         </div>
       </div>
       <div class="form__group">
         <label for="#">Adresse Email</label>
         <div class="form__item">
-          <input type="email" />
+          <input name="email" type="email" />
         </div>
       </div>
       <div class="form__group">
         <label for="#">Mot de passe</label>
         <div class="form__item">
-          <input type="password" />
+          <input name="password" type="password" />
         </div>
       </div>
       <div>
-        <button class="btn primary">Créer votre compte</button>
+        <button type="submit" class="btn primary">Créer votre compte</button>
         <p class="term-of-service">
           En cliquant sur ce bouton, vous acceptez les
           <a href="#">conditions générales</a> et la

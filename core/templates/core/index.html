@@ -5,6 +5,8 @@
 
 <!-- Content -->
 {% block core_content %}
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga, eos!</p>
-<a href="#">This is a link</a>
+<form action="{% url 'users:logout' %}" method="post">
+  {% csrf_token %}
+  <button type="submit">Logout</button>
+</form>
 {% endblock %}

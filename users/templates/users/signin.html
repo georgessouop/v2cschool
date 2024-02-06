@@ -36,19 +36,20 @@
     <div class="login__cta">
       <h1 class="login__heading">Se connecter à l'application</h1>
       <p class="login__sub-heading">
-        ou <a href="{% url 'users:register' %}">ouvrir un compte</a>
+        ou <a href="{% url 'users:signup' %}">ouvrir un compte</a>
       </p>
     </div>
-    <form action="#" class="login__form">
+    <form class="login__form" method="post">
+      {% csrf_token %}
       <div class="login__form__group">
-        <label for="#">Nom d'utilisateur (ou Adresse Email)</label>
-        <input type="text" />
+        <label for="#">Nom d'utilisateur</label>
+        <input name="username" type="text" />
       </div>
       <div class="login__form__group">
         <label for="#">Mot de passe</label>
-        <input type="password" />
+        <input name="password" type="password" />
       </div>
-      <button class="btn primary">Se connecter</button>
+      <button type="submit" class="btn primary">Se connecter</button>
     </form>
   </div>
 </div>

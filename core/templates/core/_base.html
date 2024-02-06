@@ -1,6 +1,6 @@
 {% extends '_base.html' %}
 
-<!-- STATIC FILES LOADER -->
+<!-- Static Files Loader -->
 {% load static %}
 
 <!-- CSS -->
@@ -10,9 +10,10 @@
 
 <!-- CONTENT -->
 {% block content %}
-<!-- Navigation-->
-{% include 'core/navigation.html' %}
-<!-- core_content-->
+<!-- Navigation -->
+{% include 'core/inc/navigation.html' %}
+
+<!-- Core Content-->
 <main>{% block core_content %}{% endblock %}</main>
 {% endblock %}
 

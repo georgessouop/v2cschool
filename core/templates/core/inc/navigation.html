@@ -1,7 +1,7 @@
 {% load static %}
 
 <div class="navigation">
-  <a href="#" class="navigation__logo">
+  <a href="{% url 'core:index' %}" class="navigation__logo">
     <img src="{% static 'images/svg/logo.svg' %}" alt="logo" />
   </a>
   <div class="navigation__wrapper">
@@ -67,7 +67,7 @@
           </a>
           <ul class="dropdown__menu">
             <li>
-              <a href="#" class="dropdown__item"
+              <a href="{% url 'users:list' %}" class="dropdown__item"
                 ><span>Liste utilisateurs</span></a
               >
             </li>
@@ -173,7 +173,7 @@
           </a>
         </li>
         <li>
-          <a href="#" class="navigation__item settings">
+          <a href="#" class="navigation__item dropdown__btn settings">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
@@ -190,6 +190,21 @@
             </svg>
             <span>Compte</span>
           </a>
+          <ul class="dropdown__menu">
+            <li>
+              <a href="#" class="dropdown__item"><span>Profil</span></a>
+            </li>
+            <li>
+              <form
+                class="dropdown__item"
+                action="{% url 'users:logout' %}"
+                method="post"
+              >
+                {% csrf_token %}
+                <button type="submit">Deconnexion</button>
+              </form>
+            </li>
+          </ul>
         </li>
       </ul>
     </div>

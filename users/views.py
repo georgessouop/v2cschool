@@ -1,9 +1,11 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 
 from .models import User, Profile
 from school.models import School
 
+# AUTHENTICATION
 def signin(request):
     if request.user.is_authenticated:
         # If user is already authenticated, redirect them to dashboard
@@ -24,9 +26,9 @@ def signin(request):
         else:
             # Authentication failed, display error message
             error_message = "Invalid username or password. Please try again."
-            return render(request, 'users/signin.html', {'error_message': error_message})
+            return render(request, 'users/auth/signin.html', {'error_message': error_message})
 
-    return render(request, 'users/signin.html', {})
+    return render(request, 'users/auth/signin.html', {})
 
 
 def signup(request):
@@ -53,9 +55,15 @@ def signup(request):
         # Redirect to login page
         return redirect('users:signin')
 
-    return render(request, 'users/signup.html', {})
+    return render(request, 'users/auth/signup.html', {})
 
 
+@login_required
 def logout_view(request):
     logout(request)
     return redirect('users:signin')
+
+
+@login_required
+def users_list(request):
+    return render(request, 'users/users_list.html', {})

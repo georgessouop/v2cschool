@@ -1,0 +1,121 @@
+.navigation {
+  width: var(--navigation-width);
+  height: 100vh;
+  height: var(--full-height);
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--blue-100);
+  color: var(--white);
+  overflow-y: auto;
+}
+
+.navigation__logo {
+  padding: 1.6rem 0;
+}
+
+.navigation__logo img {
+  height: 16px;
+}
+
+.navigation__wrapper {
+  flex: 1 0 0;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0 1em;
+}
+
+.navigation__item {
+  display: flex;
+  align-items: center;
+  gap: 0.938em;
+  padding: 0.75em 0;
+  font-size: 1.1rem;
+  font-weight: var(--fw-semi-bold);
+  color: var(--gray-10);
+  transition: color 150ms ease-in-out;
+}
+
+.navigation__item svg {
+  fill: var(--gray-10);
+  width: 25px;
+  height: 25px;
+  transition: fill 150ms ease-in-out;
+}
+
+.navigation__item:hover {
+  color: var(--white);
+}
+
+.navigation__item:hover svg {
+  fill: var(--white);
+}
+
+.navigation__item.settings {
+  padding: 1em 0;
+  border-top: 0.5px solid var(--blue-50);
+}
+
+.navigation__top li:nth-last-child(2) .navigation__item {
+  margin-top: 0.5em;
+}
+
+.navigation__top li:last-child .navigation__item {
+  border-bottom: 0.5px solid var(--blue-50);
+}
+
+.dropdown__menu {
+  height: 0;
+  visibility: hidden;
+}
+
+.dropdown__menu.open {
+  height: auto;
+  visibility: visible;
+}
+
+.dropdown__item {
+  position: relative;
+  display: block;
+  padding: 0.625em 0 0.625em 3em;
+  font-size: 1rem;
+  color: var(--gray-20);
+  transition: color 150ms ease-in-out;
+}
+
+.dropdown__item:hover {
+  color: var(--white);
+}
+
+.dropdown__item:not(.active):hover span::before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 1.2rem;
+  top: 0.85rem;
+  width: 0.4rem;
+  height: 0.4rem;
+  border-top: 2px solid var(--white);
+  border-right: 2px solid var(--white);
+  transform: rotate(45deg);
+}
+
+.dropdown__item.active {
+  color: var(--yellow-dark);
+  font-weight: 500;
+}
+
+.dropdown__item.active span::before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 1.2rem;
+  top: 0.85rem;
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 50%;
+  background-color: var(--yellow-dark);
+}

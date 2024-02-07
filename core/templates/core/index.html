@@ -4,9 +4,4 @@
 {% block title %} Tableau de Bord {% endblock %}
 
 <!-- Content -->
-{% block core_content %}
-<form action="{% url 'users:logout' %}" method="post">
-  {% csrf_token %}
-  <button type="submit">Logout</button>
-</form>
-{% endblock %}
+{% block core_content %} {% endblock %}

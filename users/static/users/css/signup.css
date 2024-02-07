@@ -1,4 +1,7 @@
 .register__container {
+  height: 100vh;
+  height: var(--full-height);
+  background-size: cover;
   background-image: url("/static/users/images/sign-up-background--desktop.jpg");
   position: relative;
 }

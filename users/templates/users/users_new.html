@@ -1,0 +1,186 @@
+{% extends 'core/_base.html' %}
+
+<!-- Title -->
+{% block title %} Nouveau utilisateur {% endblock %}
+
+<!-- Content -->
+{% block core_content %}
+<!-- error message -->
+{{error_message}}
+
+<form method="post">
+  {% csrf_token %}
+  <header>
+    <div class="header__navigation m-r-30 border-b">
+      <a href="{% url 'users:list' %}" class="header__backlink">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          fill="currentColor"
+          class="bi bi-arrow-left"
+          viewBox="0 0 16 16"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"
+          />
+        </svg>
+        Liste des utilisateurs
+      </a>
+      <div class="header__wrapper">
+        <h1 class="header__title">Nouveau utilisateur</h1>
+        <div class="header__actions">
+          <button class="btn secondary">Enregistrer & ajouter un autre</button>
+          <button type="submit" class="btn primary">Enregistrer</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="content w-40">
+    <div class="content__wrapper">
+      <div class="box">
+        <div class="box__wrapper">
+          <div class="box__header">
+            <h2 class="box__title">Créer un nouveau utilisateur</h2>
+            <span class="box__info">* Information requise</span>
+          </div>
+          <div class="box__content">
+            <div class="form__row">
+              <div class="form__group">
+                <label for="first_name">Nom *</label>
+                <div class="form__item">
+                  <input name="first_name" type="text" id="first_name" />
+                </div>
+              </div>
+              <div class="form__group">
+                <label for="last_name">Prenom</label>
+                <div class="form__item">
+                  <input name="last_name" type="text" id="last_name" />
+                </div>
+              </div>
+            </div>
+            <div class="form__row">
+              <div class="form__group">
+                <label for="email">Email *</label>
+                <div class="form__item">
+                  <input name="email" type="text" for="email" required />
+                </div>
+              </div>
+              <div class="form__group">
+                <label for="role">Role *</label>
+                <div class="form__item">
+                  <select name="role" id="role" required>
+                    <option value="teacher">Enseignant</option>
+                    <option value="provisor">Proviseur</option>
+                    <option value="admin">Administrateur</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="box">
+        <div class="box__wrapper">
+          <div class="box__header">
+            <h2 class="box__title">Informations supplementaires</h2>
+          </div>
+          <div class="box__content">
+            <div class="form__row">
+              <div class="form__group">
+                <label for="birth_date">Date naissance</label>
+                <div class="form__item">
+                  <input
+                    name="birth_date"
+                    type="date"
+                    id="birth_date"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="form__group">
+                <label for="town">Ville</label>
+                <div class="form__item">
+                  <input name="town" type="text" id="town" />
+                </div>
+              </div>
+            </div>
+            <div class="form__row">
+              <div class="form__group">
+                <label for="neighborhood">Quartier</label>
+                <div class="form__item">
+                  <input name="neighborhood" type="text" id="neighborhood" />
+                </div>
+              </div>
+              <div class="form__group">
+                <label for="sex">Sexe</label>
+                <div class="form__item">
+                  <select name="sex" id="sex">
+                    <option value="masculin">Masculin</option>
+                    <option value="feminin">Feminin</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="form__row">
+              <div class="form__group">
+                <label for="phone">Telephone</label>
+                <div class="form__item">
+                  <input name="phone" type="text" id="phone" />
+                </div>
+              </div>
+              {% comment %}
+              <div class="form__group">
+                <label for="image">Photo *</label>
+                <div class="form__item">
+                  <input name="image" type="file" id="image" />
+                </div>
+              </div>
+              {% endcomment %}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="box">
+        <div class="box__wrapper">
+          <div class="box__header">
+            <h2 class="box__title">Mot de passe</h2>
+          </div>
+          <div class="box__content">
+            <div class="form__row">
+              <div class="form__group">
+                <label for="password">Mot de passe *</label>
+                <div class="form__item">
+                  <input
+                    name="password"
+                    type="password"
+                    id="password"
+                    required
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="form__row">
+              <div class="form__group">
+                <label for="password_confirm">Confirmer Mot de passe *</label>
+                <div class="form__item">
+                  <input
+                    name="password_confirm"
+                    type="password"
+                    id="password_confirm"
+                    required
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+{% endblock %}

@@ -10,6 +10,7 @@ class School(models.Model):
     country = models.CharField(max_length=50, blank=True, null=True)
     email = models.EmailField(max_length=50, blank=True, null=True)
     phone = models.CharField(max_length=50, blank=True, null=True)
+    logo = models.ImageField(default='default.jpg', upload_to='school_files')
 
     def __str__(self):
         return self.name

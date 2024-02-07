@@ -1,5 +1,4 @@
-.login__container,
-.register__container {
+.login__container {
   height: 100vh;
   height: var(--full-height);
   background-size: cover;
